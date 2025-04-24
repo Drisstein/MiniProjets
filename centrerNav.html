@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positionner </title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 10px 20px;
+        position: fixed;
+        width: 100%;
+        margin-right: ;
+    }
+
+    .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: larger;
+    }
+
+    .nav-list {
+        list-style-type: none;
+        display: flex;
+        gap: 10px;
+    }
+
+    .nav-list li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .accueil {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        padding-top: 60px;
+        /* Pour éviter que le contenu soit caché derrière la navbar fixe */
+        background-image: url(./img/imgbg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* background-position: center; */
+        color: white;
+
+
+    }
+</style>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Drisstein <span> /> </span></div>
+        <ul class="nav-list">
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">A propos</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contacts</a></li>
+        </ul>
+    </nav>
+    <section class="accueil">
+        <h1>À PROPOS</h1>
+        <p>Nous sommes une entreprise spécialisée dans le développement de solutions innovantes.</p>
+        <p>Notre équipe est composée d'experts passionnés par la technologie et l'innovation.</p>
+        <p>Nous nous engageons à fournir des services de haute qualité à nos clients.</p>
+    </section>
+</body>
+
+</html>
