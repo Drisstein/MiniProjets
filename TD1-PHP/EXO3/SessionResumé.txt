@@ -1,0 +1,75 @@
+Drisstein: Expliques moi l'exercice demandé stp et insiste sur les sessions stp
+
+Workspace: Collecting workspace informationL'exercice demande de créer un formulaire d'inscription permettant à un
+utilisateur de s'enregistrer avec ses informations personnelles (prénom, nom, téléphone, email). Une fois que
+l'utilisateur soumet le formulaire, les données saisies doivent être stockées dans des **variables de session**.
+Ensuite, ces données doivent être utilisées pour afficher un message de bienvenue personnalisé à l'utilisateur.
+
+### Les sessions en PHP
+Une **session** en PHP est un mécanisme qui permet de conserver des données entre différentes pages web pour un
+utilisateur donné. Les sessions sont particulièrement utiles pour stocker des informations temporaires, comme les
+données d'un utilisateur connecté.
+
+#### Fonctionnement des sessions :
+1. **Démarrage de la session** : Avant d'utiliser une session, il faut appeler `session_start()` au début du script PHP.
+Cela initialise ou reprend une session existante.
+2. **Stockage des données** : Les données sont stockées dans la superglobale `$_SESSION`, qui est un tableau associatif.
+Par exemple :
+```php
+$_SESSION['prenom'] = 'Jean';
+```
+3. **Récupération des données** : Les données stockées dans `$_SESSION` peuvent être récupérées sur n'importe quelle
+page où la session est active :
+```php
+echo $_SESSION['prenom']; // Affiche "Jean"
+```
+4. **Destruction de la session** : Pour supprimer les données de session, on peut utiliser `session_destroy()`.
+
+### Étapes pour résoudre l'exercice
+1. **Créer le formulaire** : Le formulaire HTML est déjà présent dans le fichier. Il permet à l'utilisateur de saisir
+ses informations.
+2. **Traiter les données du formulaire** :
+- Vérifier si le formulaire a été soumis (`isset($_POST['submit'])`).
+- Récupérer les données saisies via `$_POST`.
+- Stocker ces données dans des variables de session.
+3. **Afficher un message de bienvenue** :
+- Après avoir stocké les données dans la session, afficher un message personnalisé contenant les informations de
+l'utilisateur.
+
+### Exemple de solution
+Voici comment compléter le fichier pour répondre à l'exercice :
+
+```php
+<?php
+session_start(); // Démarrer la session
+
+if (isset($_POST['submit'])) {
+    // Récupérer les données du formulaire
+    $_SESSION['prenom'] = $_POST['prenom'];
+    $_SESSION['nom'] = $_POST['name'];
+    $_SESSION['telephone'] = $_POST['telephone'];
+    $_SESSION['email'] = $_POST['email'];
+
+    // Afficher un message de bienvenue
+    echo "<h3>Bienvenue, " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . "!</h3>";
+    echo "<p>Vos informations :</p>";
+    echo "<ul>";
+    echo "<li>Téléphone : " . $_SESSION['telephone'] . "</li>";
+    echo "<li>Email : " . $_SESSION['email'] . "</li>";
+    echo "</ul>";
+}
+?>
+```
+
+### Explications du code
+1. **Démarrage de la session** : `session_start()` est appelé pour activer les sessions.
+2. **Récupération des données** : Les données du formulaire sont récupérées via `$_POST` et stockées dans `$_SESSION`.
+3. **Affichage des données** : Les informations de l'utilisateur sont affichées en utilisant les variables de session.
+
+### Avantages des sessions
+- Les données sont accessibles sur plusieurs pages sans avoir à les transmettre explicitement.
+- Les sessions sont sécurisées car les données sont stockées côté serveur (contrairement aux cookies qui sont stockés
+côté client).
+
+Avec ce mécanisme, vous pouvez facilement personnaliser l'expérience utilisateur en fonction des informations qu'il a
+fournies.
