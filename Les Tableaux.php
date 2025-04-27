@@ -10,6 +10,19 @@ $information = array(
 foreach ($information as $info) {
     echo $info . '<br />';
 }
+echo '<br>';
+
+$information = array(
+    'prenom' => 'Demba',
+    'nom' => 'Thiam',
+    'adresse' =>
+        'Linguere',
+    'ville' => 'Louga'
+);
+foreach ($information as $cleinfos => $lesinfos) {
+    echo '[' . $cleinfos . '] vaut ' . $lesinfos . '<br />';
+}
+
 
 echo "<br>";
 echo '<b> Boucle for</b>: <br> ';
