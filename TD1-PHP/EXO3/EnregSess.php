@@ -8,13 +8,11 @@ variables de session pour afficher un message de bienvenue à
 l'utilisateur avec ses informations. -->
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
 </head>
-
 <body>
     <form action="" method="post">
         <h2>Inscription</h2>
@@ -25,13 +23,10 @@ l'utilisateur avec ses informations. -->
         <input type="submit" name="submit" id="submit" value="S'inscrire">
 
     </form>
-
 </body>
-
 </html>
 <?php
 session_start(); // Démarrer la session
-
 if (isset($_POST['submit'])) {
     // Récupérer les données du formulaire
     $_SESSION['prenom'] = $_POST['prenom'];
@@ -39,12 +34,9 @@ if (isset($_POST['submit'])) {
     $_SESSION['telephone'] = $_POST['telephone'];
     $_SESSION['email'] = $_POST['email'];
 
-    // Afficher un message de bienvenue
-    echo "<h3>Bienvenue, " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . "!</h3>";
-    echo "<p>Vos informations :</p>";
-    echo "<ul>";
-    echo "<li>Téléphone : " . $_SESSION['telephone'] . "</li>";
-    echo "<li>Email : " . $_SESSION['email'] . "</li>";
-    echo "</ul>";
+    // Rediriger vers la même page pour éviter la soumission multiple
+    header("Location:  ./Connected.php");
+    exit(); 
 }
 ?>
+

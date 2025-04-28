@@ -1,3 +1,12 @@
+<!-- Exercice 2 : Vérification des données d'un formulaire de connexion 
+Objectif : Créer un formulaire de connexion et vérifier les données 
+soumises. 
+Enoncé : 
+Créez un formulaire de connexion avec les champs "Nom d'utilisateur" 
+et "Mot de passe". Lorsque l'utilisateur soumet le formulaire, vérifiez si 
+les données soumises correspondent aux valeurs pré-définies. Si les 
+données sont correctes, affichez un message de bienvenue. Sinon, 
+affichez un message d'erreur. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,21 +27,15 @@
 </body>
 
 </html>
-
 <?PHP
 $admin = "drisstein";
 $pass = "root";
-
 if (isset($_POST["submit"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
     if (($username == $admin) && ($pass == $password)) {
-        echo "Connexion réussie ! ";
+        echo "Bienvenue $admin ,Connexion réussie ! ";
     } else
         echo "Informations Incorrectes ! ";
 }
-
-
-
-
 ?>
